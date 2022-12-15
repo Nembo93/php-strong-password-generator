@@ -26,7 +26,7 @@ function password_gen (){
             if($rand_char % 2 == 0 && $rand_char < 9){
                 $num_rand = rand(0, (count($pas_num_char)) - 1);
                 $my_password[] = $pas_num_char[$num_rand];
-            } else if($rand_char % 2 == 0 && $rand_char < 19){
+            } else if($rand_char % 2 == 0 && $rand_char >= 9){
                 $num_rand = rand(0, (count($pas_letter_char)) - 1);
                 $my_password[] = $pas_letter_char[$num_rand];
             }
@@ -34,33 +34,18 @@ function password_gen (){
                 $num_rand = rand(0, (count($pas_letter_big_char)) - 1);
                 $my_password[] = $pas_letter_big_char[$num_rand];
             }
-            else if ($rand_char % 2 !=0 && $rand_char < 19){
+            else if ($rand_char % 2 !=0 && $rand_char >= 9){
                 $num_rand = rand(0, (count($pas_spec_char)) - 1);
                 $my_password[] = $pas_spec_char[$num_rand];
             }
             }
     } else{
         echo "dato assente";
-        for ($i = 0; $i < 20; $i++){
-            $rand_char = rand(0, 19);
-            if ($rand_char % 2 == 0 && $rand_char < 9){
-                echo "??? ";
             }
-            else if ($rand_char % 2 == 0 && $rand_char < 19){
-                echo "minuscolo ";
-            }
-            else if ($rand_char % 2 != 0 && $rand_char < 9){
-                echo "341 ";
-            }
-            else if ($rand_char % 2 !=0 && $rand_char < 19){
-                echo "MAIUSCOLO ";
-            }
-        }
-    }
     return $my_password;
 }
-$new_password = password_gen();
 
+$new_password = password_gen();
 $_SESSION["password"] = $new_password;
 
 if ($new_password != ""){
