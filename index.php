@@ -11,13 +11,14 @@ $pas_letter_char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l"];
 // Creare una funzione generi una password di lunghezza pari al valore preso dal form
 function password_gen (){
     $pas_num_char = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    $pass_len = $_GET["password_number"];
 
     if ($_GET["password_number"] != 0 && $_GET["password_number"] != ""){
         echo "dato presente";
         // Ciclo
         $my_password = [];
-        for ($i = 0; $i <= 5; $i++){
-            $num_rand = rand(0, 9);
+        for ($i = 0; $i < $pass_len; $i++){
+            $num_rand = rand(0, (count($pas_num_char)) - 1);
             $my_password[] = $pas_num_char[$num_rand];
             }
         var_dump($my_password);
