@@ -24,7 +24,7 @@ include "function.php";
     </header>
     <main>
         <h2>
-            <?php echo implode ($new_password )?>
+            <?php echo implode ($new_password)?>
         </h2>
     </main>
 </body>

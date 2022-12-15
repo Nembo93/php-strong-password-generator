@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Dichiarare una variabile per la lunghezza della password e assegnarli il valore del form tramite GET
 
 // Creare una funzione generi una password di lunghezza pari al valore preso dal form
@@ -60,7 +61,11 @@ function password_gen (){
 }
 $new_password = password_gen();
 
+$_SESSION["password"] = $new_password;
 
+if ($new_password != ""){
+    header("location: http://localhost/php-strong-password-generator/password_page.php");
+}
 // Ciclo
 // $my_password = [];
 // for ($i = 0; $i <= strlen($_GET["password_number"]); $i++){
