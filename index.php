@@ -17,26 +17,50 @@
 function password_gen (){
     $pass_len = $_GET["password_number"];
     $pas_num_char = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    $pas_letter_char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l"];
-
+    $pas_letter_char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "y", "z"];
+    $pas_letter_big_char = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z"];
+    $pas_spec_char = ["?", ";", "%", "*", "<", ">"];
     if ($_GET["password_number"] != 0 && $_GET["password_number"] != ""){
         echo "dato presente";
         $my_password = [];
         // Ciclo
         for ($i = 0; $i < $pass_len; $i++){
-            $rand_char = rand(0, 9);
-            var_dump($rand_char);
-            if($rand_char % 2 == 0){
+            $rand_char = rand(0, 19);
+            if($rand_char % 2 == 0 && $rand_char < 9){
                 $num_rand = rand(0, (count($pas_num_char)) - 1);
                 $my_password[] = $pas_num_char[$num_rand];
-            } else {
+            } else if($rand_char % 2 == 0 && $rand_char < 19){
                 $num_rand = rand(0, (count($pas_letter_char)) - 1);
                 $my_password[] = $pas_letter_char[$num_rand];
+            }
+            else if ($rand_char % 2 != 0 && $rand_char < 9){
+                $num_rand = rand(0, (count($pas_letter_big_char)) - 1);
+                $my_password[] = $pas_letter_big_char[$num_rand];
+            }
+            else if ($rand_char % 2 !=0 && $rand_char < 19){
+                $num_rand = rand(0, (count($pas_spec_char)) - 1);
+                $my_password[] = $pas_spec_char[$num_rand];
             }
             }
         var_dump($my_password);
     } else{
         echo "dato assente";
+        for ($i = 0; $i < 20; $i++){
+            $rand_char = rand(0, 19);
+            if ($rand_char % 2 == 0 && $rand_char < 9){
+                echo "??? ";
+            }
+            else if ($rand_char % 2 == 0 && $rand_char < 19){
+                echo "minuscolo ";
+            }
+            else if ($rand_char % 2 != 0 && $rand_char < 9){
+                echo "341 ";
+            }
+            else if ($rand_char % 2 !=0 && $rand_char < 19){
+                echo "MAIUSCOLO ";
+            }
+        }
+        
     }
 }
 password_gen();
