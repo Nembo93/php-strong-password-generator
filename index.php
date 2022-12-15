@@ -10,8 +10,9 @@
     // 2. Dichiarare in una variabile il valore del form (lunghezza della password)
     // 3. Creare condizione che verificando la presenza di un valore accettato all'interno del form, dichiari un array in cui pushare la password generata ed entri nel ciclo
     // 4. Creare ciclo che si esegua per un numero di volte pari alla lunghezza della password da generare
-        // 4.1 Creare, all'interno del ciclo, funzione che generi un numero randomico (indice dell'array da cui attingere i numeri della password)
-        // 4.2 Richiamare tramite indice (numero randomico) elemento dell'array da cui attingere numeri e pusharlo all'interno dell'array della password da generare
+        // Creare, all'interno del ciclo, funzione che generi un numero randomico. Creare condizione in base alla quale se il numero è pari, il carattere da pushare nella password è un numero, altrimenti è una letter
+        // 4.1 Creare, all'interno della condizione, funzione che generi un numero randomico (indice dell'array da cui attingere i numeri della password)
+        // 4.2 Richiamare tramite indice (numero randomico) elemento dell'array da cui attingere carattere e pusharlo all'interno dell'array della password da generare
 
 function password_gen (){
     $pass_len = $_GET["password_number"];
