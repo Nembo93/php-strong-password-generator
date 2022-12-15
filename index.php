@@ -1,23 +1,40 @@
 <?php
 // Dichiarare degli array con i caratteri per generare la password
-$pas_num_char = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// $pas_num_char = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $pas_letter_char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "l"];
 // var_dump($pas_num_char, $pas_letter_char);
 // Dichiarare una variabile per la lunghezza della password e assegnarli il valore del form tramite GET
-$password_len = "";
-$password_len = $_GET["password_number"];
+// $password_len = "";
+// $password_len = $_GET["password_number"];
 // var_dump($password_len);
 
 // Creare una funzione generi una password di lunghezza pari al valore preso dal form
 function password_gen (){
+    $pas_num_char = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
     if ($_GET["password_number"] != 0 && $_GET["password_number"] != ""){
         echo "dato presente";
+        // Ciclo
+        $my_password = [];
+        for ($i = 0; $i <= 5; $i++){
+            $num_rand = rand(0, 9);
+            $my_password[] = $pas_num_char[$num_rand];
+            }
+        var_dump($my_password);
     } else{
         echo "dato assente";
     }
 }
-
 password_gen();
+
+
+// Ciclo
+// $my_password = [];
+// for ($i = 0; $i <= strlen($_GET["password_number"]); $i++){
+//     $num_rand = rand(0, strlen($_GET["password_number"]));
+//     $my_password[] = $pas_num_char[$num_rand];
+// }
+// var_dump($my_password);
 ?>
 
 
