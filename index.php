@@ -60,10 +60,10 @@ function password_gen (){
                 echo "MAIUSCOLO ";
             }
         }
-        
     }
+    return $my_password;
 }
-password_gen();
+$new_password = password_gen();
 
 
 // Ciclo
@@ -85,11 +85,18 @@ password_gen();
     <title>PHP Strong Password Generator</title>
 </head>
 <body>
-    <h1>Password</h1>
-    <form action="" method="get">
-        <input type="number" name="password_number">
-        <button>Genera</button>
-    </form>
+    <header>
+        <h1>Password</h1>
+        <form action="" method="get">
+            <input type="number" name="password_number">
+            <button>Genera</button>
+        </form>
+    </header>
+    <main>
+        <h3>
+            <?php echo implode ($new_password )?>
+        </h3>
+    </main>
 </body>
 </html>
 
